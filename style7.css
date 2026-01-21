@@ -1,0 +1,258 @@
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Dela+Gothic+One&display=swap');
+@import url("https://use.typekit.net/qse0mlk.css");
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+    overscroll-behavior: none;
+}
+
+/* Background Red Gradient (Lighter outside) */
+.bg-red-gradient {
+    /* Gradient đỏ sáng pha trắng nhẹ để làm nổi bật box đỏ đậm ở giữa */
+    background: linear-gradient(180deg, #ffffff 0%, #e01212 70%);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Back Button Text Style */
+.back-btn {
+    position: absolute;
+    top: 2rem;
+    left: 2.5rem;
+    z-index: 100;
+    cursor: pointer;
+    text-decoration: none;
+    
+    /* Font Style */
+    font-family: 'Phudu', sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #e01212;
+    text-transform: uppercase;
+    
+    transition: transform 0.2s;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+}
+
+/* --- CANVAS KHÓI --- */
+#p5-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 50; /* Khói bay lên trên cả box đỏ */
+    pointer-events: none;
+}
+
+/* --- RED BOX FRAME --- */
+.red-box-frame {
+    width: 75%;
+    height: 70%;
+    background: linear-gradient(180deg, #bc1111 30%, #e01212 70%);
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- CONTENT WRAPPER --- */
+.content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- TEXT CONTENT STATES --- */
+.text-content {
+    position: absolute;
+    width: 100%;
+    padding: 0 2rem;
+    text-align: center;
+    color: white;
+    
+    /* TRẠNG THÁI ẨN (Lúc chưa hiện hoặc vừa nổ xong) */
+    opacity: 0;
+    /* Không dùng transform scale khi ẩn để tránh lệch vị trí với particle */
+    transform: translateY(0); 
+    
+    /* QUAN TRỌNG: Khi mất class active -> Biến mất NGAY LẬP TỨC (0s) */
+    /* Để các hạt Particle hiện ra thay thế vị trí đó liền */
+    transition: opacity 0s, filter 0s;
+    
+    pointer-events: none; 
+}
+
+.text-content.active {
+    /* TRẠNG THÁI HIỆN */
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+    
+    /* Khi HIỆN RA: Hiện từ từ (Fade In) chậm rãi sau lớp khói */
+    /* Delay 1s để chờ khói bay bớt mới hiện chữ mới */
+    transition: opacity 2s ease-in-out 1s, filter 2s ease-in-out 1s;
+    
+    pointer-events: auto;
+}
+
+/* Typography State 1 */
+.main-title {
+    font-family: 'Phudu', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.poem-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.poem-line {
+    opacity: 0.95;
+}
+.line-1 { transform: translateX(-15%); }
+.line-2 { transform: translateX(15%); }
+.line-3 { transform: translateX(-10%); margin-top: 1rem; }
+.line-4 { transform: translateX(10%); }
+
+/* Typography State 2 */
+.names-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.hero-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.hero-role {
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.hero-name {
+    font-family: 'Phudu', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.tribute-text {
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 1rem;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* --- INCENSE BASE (Cụm Nhang & Chữ U) --- */
+.incense-base {
+    position: absolute;
+    bottom: -30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 200px; 
+    z-index: 20; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Chữ U (Font Dela Gothic One) */
+.incense-u {
+    font-family: 'Dela Gothic One', cursive;
+    font-size: 10rem; 
+    color: white;
+    line-height: 0.75; 
+    position: relative;
+    z-index: 2; 
+    text-align: center;
+}
+
+/* Wrapper chứa các cây nhang */
+.sticks-wrapper {
+    position: absolute;
+    bottom: 80px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 150px;
+    z-index: 1; 
+}
+
+/* Các cây nhang */
+.stick {
+    position: absolute;
+    bottom: 0;
+    width: 7px;
+    height: 120px;
+    background-color: #FFFFFF;
+    transform-origin: bottom center;
+}
+
+.stick-left {
+    left: 50%;
+    transform: translateX(-15px) rotate(-15deg);
+    height: 130px;
+}
+
+.stick-center {
+    left: 50%;
+    transform: translateX(-50%);
+    height: 130px;
+}
+
+.stick-right {
+    left: 50%;
+    transform: translateX(10px) rotate(15deg);
+    height: 130px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .red-box-frame { width: 90%; height: 65%; }
+    .main-title { font-size: 1.8rem; margin-bottom: 2rem; }
+    .poem-group { font-size: 0.9rem; gap: 1rem; }
+    .hero-name { font-size: 1.3rem; }
+    
+    .incense-base { transform: translateX(-50%) scale(0.7); bottom: -10px; }
+}

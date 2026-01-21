@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A City Within A City</title>
+    <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+    <div class="page-container bg-pink-gradient">
+        
+        <!-- Nút Back Text -->
+        <a href="3.html" class="back-btn">
+            TRỞ VỀ
+        </a>
+
+        <!-- Layout chính chia 2 cột -->
+        <div class="main-layout">
+            
+            <!-- CỘT TRÁI: TEXT DREAM (Căn phải để gom vào giữa) -->
+            <div class="left-panel">
+                <h3 class="intro-text">Chơi để thoả giấc mơ được</h3>
+                
+                <!-- Chữ Ballet - Đã bỏ <br> để thành 1 hàng -->
+                <h1 id="dream-text" class="dream-title">Chinh Phục</h1>
+                
+                <p class="instruction">Nhấn "xoay" để xoay</p>
+            </div>
+
+            <!-- CỘT PHẢI: WHEEL -->
+            <div class="right-panel">
+                <div class="wheel-wrapper">
+                    
+                    <!-- LỚP 1 (NGOÀI CÙNG): Chữ VUI CHƠI THOẢ ƯỚC MƠ -->
+                    <!-- Bán kính lớn nhất (R=360) -->
+                    <div class="outer-text-ring">
+                        <svg viewBox="0 0 800 800">
+                            <defs>
+                                <!-- Path R=360 -->
+                                <path id="outerPath" d="M 400, 400 m -360, 0 a 360,360 0 1,1 720,0 a 360,360 0 1,1 -720,0" />
+                            </defs>
+                            <!-- Chữ to, nằm bên trái -->
+                            <text fill="white" font-family="Phudu, sans-serif" font-weight="600" font-size="65" letter-spacing="-2px">
+                                <textPath href="#outerPath" startOffset="38%" text-anchor="middle">
+                                    VUI CHƠI THOẢ ƯỚC MƠ
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+
+                    <!-- LỚP 2 (GIỮA): Đoạn văn bản nhỏ -->
+                    <!-- Bán kính nhỏ hơn (R=310) để nằm trong lớp 1 -->
+                    <div class="middle-text-ring">
+                        <svg viewBox="0 0 800 800">
+                            <defs>
+                                <!-- Path R=310 -->
+                                <path id="middlePath" d="M 400, 400 m -310, 0 a 310,310 0 1,1 620,0 a 310,310 0 1,1 -620,0" />
+                            </defs>
+                            <text fill="white" font-family="aktiv-grotesk-extended, sans-serif" font-size="11" letter-spacing="1px" opacity="0.9" font-weight="300";>
+                                <textPath href="#middlePath" startOffset="0%">
+                                    Tại đây, mỗi trò chơi là một phép màu biến những mộng tưởng vô lý nhất thành sự thật rạng ngời. Ta được bay, được lái, được chạm vào những vì sao rực rỡ trong hình hài đứa trẻ đã bấy lâu thất lạc giữa lòng phố xá rã rời ngoài kia. Phường Thoả Thích mở ra một cõi mộng lộng lẫy, nơi ham muốn được giải phóng khỏi trọng lực của thực tại để thăng hoa cùng ánh đèn neon và tiếng cười không dứt. Hãy để nhịp đập của niềm vui dẫn lối bạn vào một thành phố của tự do vĩnh cửu, nơi mỗi trò chơi là một bến đỗ cho những khát khao tuổi thơ được hiện hữu trọn vẹn, vỗ về những tâm hồn lữ khách đang khao khát tìm lại chính mình giữa phố mệt...
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+
+                    <!-- LỚP 3 (TRONG CÙNG): Vòng Xoay Chứa Các Món -->
+                    <!-- Sẽ được CSS thu nhỏ kích thước để lọt vào trong 2 vòng chữ -->
+                    <div class="spinner-container" id="spinner">
+                        <!-- Các item sẽ được JS thêm vào đây -->
+                    </div>
+
+                    <!-- Mũi tên chỉ (Bên phải) -->
+                    <div class="pointer-arrow"></div>
+
+                    <!-- Nút XOAY ở giữa -->
+                    <button class="btn-spin" id="spin-btn">XOAY</button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script5.js"></script>
+</body>
+</html>

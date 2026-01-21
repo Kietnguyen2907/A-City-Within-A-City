@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A City Within A City</title>
+    <link rel="stylesheet" href="style7.css">
+    <!-- P5.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+    <div class="page-container bg-red-gradient">
+        
+        <!-- Nút Back Text -->
+        <a href="3.html" class="back-btn">
+            TRỞ VỀ
+        </a>
+
+        <!-- Container chứa canvas P5 (Khói) -->
+        <!-- Z-index: 5 (Trên nền, dưới box đỏ) -->
+        <div id="p5-container"></div>
+
+        <!-- Khung đỏ hình chữ nhật phía sau -->
+        <div class="red-box-frame">
+            <!-- Wrapper chứa nội dung chữ -->
+            <div class="content-wrapper">
+                
+                <!-- TRẠNG THÁI 1: UỐNG NƯỚC NHỚ NGUỒN -->
+                <div id="state-1" class="text-content active">
+                    <h1 class="main-title">UỐNG NƯỚC NHỚ NGUỒN</h1>
+                    <div class="poem-group">
+                        <p class="poem-line line-1">Nghiêng mình thắp nén tâm hương,</p>
+                        <p class="poem-line line-2">gửi lòng tri ân vào làn khói mảnh.</p>
+                        <p class="poem-line line-3">Nguồn cội mãi là dòng chảy ấm,</p>
+                        <p class="poem-line line-4">vỗ về ta giữa phố xá nhộn nhịp.</p>
+                    </div>
+                </div>
+
+                <!-- TRẠNG THÁI 2: TƯỞNG NHỚ -->
+                <div id="state-2" class="text-content">
+                    <h1 class="main-title">TƯỞNG NHỚ</h1>
+                    <div class="names-group">
+                        <div class="hero-item">
+                            <div class="hero-role">Tổng Bí Thư</div>
+                            <div class="hero-name">Trần Phú</div>
+                        </div>
+                        
+                        <div class="hero-item">
+                            <div class="hero-role">Anh hùng</div>
+                            <div class="hero-name">Lê Thị Riêng</div>
+                        </div>
+
+                        <div class="hero-item">
+                            <div class="hero-role">Anh hùng</div>
+                            <div class="hero-name">Trần Văn Kiểu</div>
+                        </div>
+
+                        <div class="tribute-text">
+                            Cùng các anh hùng liệt sĩ<br>
+                            đã anh dũng hy sinh vì độc lập, tự do của Tổ quốc.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Cụm bát hương hình chữ U và nhang -->
+        <div class="incense-base">
+            <!-- 3 cây nhang -->
+            <div class="sticks-wrapper">
+                <div class="stick stick-left"></div>
+                <div class="stick stick-center"></div>
+                <div class="stick stick-right"></div>
+            </div>
+            
+            <!-- Chữ U làm bát hương -->
+            <div class="incense-u">U</div>
+        </div>
+
+    </div>
+
+    <script src="sketch7.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A City Within A City</title>
+    <!-- CSS riêng cho trang 8 (copy base từ trang 2 và chỉnh vị trí) -->
+    <link rel="stylesheet" href="style8.css">
+    <!-- P5.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+    <div class="page-container bg-poem">
+        
+        <div class="poem-container">
+            <!-- Container cho P5 Canvas (Giống trang 2) -->
+            <div id="p5-container"></div>
+
+            <!-- Các đoạn text mới -->
+            <div class="poem-text pos-1" id="pt-1">Lê Thị Riêng là một thành phố</div>
+            
+            <div class="poem-text pos-2" id="pt-2">Một thành phố bên trong một thành phố</div>
+            
+            <div class="poem-text pos-3" id="pt-3">Một thành phố tách biệt một thành phố</div>
+            
+            <div class="poem-text pos-4" id="pt-4">Một thành phố của mong muốn</div>
+            
+            <div class="poem-text pos-5" id="pt-5">của đam mê</div>
+            
+            <div class="poem-text pos-6" id="pt-6">và của ước mơ</div>
+            
+            <!-- Dòng cuối gộp chung hàng -->
+            <div class="poem-group-row">
+                <div class="poem-text" id="pt-7">Một thành phố mà mọi người cảm thấy...</div>
+                <div class="poem-text" id="pt-8">được thuộc về</div>
+            </div>
+            
+            <!-- Nút tiếp tục (Text only) -->
+            <div class="click-continue" id="btn-continue">Nhấn để tiếp tục</div>
+        </div>
+
+    </div>
+
+    <!-- Script P5.js (Dùng chung logic sketch2 nhưng file riêng để tránh xung đột nếu cần sửa sau này) -->
+    <script src="sketch8.js"></script>
+    <!-- Script Logic Text -->
+    <script src="script8.js"></script>
+</body>
+</html>

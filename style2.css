@@ -1,0 +1,136 @@
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&display=swap');
+@import url("https://use.typekit.net/qse0mlk.css");
+
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    height: 100dvh;
+    font-family: 'aktiv-grotesk-extended', sans-serif; /* Fallback */
+    cursor: pointer; /* Con trỏ dạng click cho toàn trang */
+}
+
+/* Container chính */
+.page-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Gradient */
+.bg-poem {
+    background: linear-gradient(180deg, #004fff 40%, #ffffff 100%);
+}
+
+.poem-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* P5 Canvas Container */
+#p5-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Nằm dưới chữ */
+    pointer-events: none;
+}
+
+canvas {
+    display: block; /* Fix khoảng trắng */
+}
+
+/* Style cho chữ */
+.poem-text {
+    position: absolute;
+    color: white;
+    font-size: 1.1rem; /* Mặc định mobile */
+    font-family: aktiv-grotesk-extended, sans-serif;
+    font-weight: 300;
+  
+    white-space: nowrap;
+    z-index: 2; /* Nằm trên canvas */
+    opacity: 0; /* Ẩn ban đầu */
+    
+    /* Tăng thời gian transition lên 1.5s để hiện chậm hơn */
+    transition: opacity 1.5s ease;
+    
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    
+    /* Cập nhật quan trọng để bounding box ôm sát chữ */
+    width: max-content;
+    line-height: 1.2;
+    padding: 5px; /* Thêm chút padding */
+    pointer-events: none; /* Không chặn click */
+}
+
+.poem-text.visible {
+    opacity: 1;
+}
+
+/* --- VỊ TRÍ TEXT --- */
+/* Mobile First */
+.pos-1 { top: 8%; left: 50%; transform: translateX(-50%); } 
+.pos-2 { top: 18%; left: 5%; } 
+.pos-3 { top: 28%; right: 5%; } 
+.pos-4 { top: 38%; left: 10%; } 
+.pos-5 { top: 48%; left: 50%; transform: translateX(-50%); } 
+.pos-6 { top: 58%; right: 10%; } 
+.pos-7 { 
+    top: 70%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    white-space: normal; 
+    width: 90%; 
+    text-align: center; 
+    max-width: 400px;
+} 
+
+/* Tablet & Desktop */
+@media (min-width: 768px) {
+    .poem-text { font-size: 1.2rem;font-weight:200 !important;}
+    
+    .pos-1 { top: 10%; left: 50%; transform: translateX(-50%); } 
+    .pos-2 { top: 20%; left: 15%; }
+    .pos-3 { top: 30%; right: 15%; left: auto; }
+    .pos-4 { top: 42%; left: 20%; }
+    .pos-5 { top: 52%; left: 50%; transform: translateX(-50%); }
+    .pos-6 { top: 62%; right: 25%; left: auto; }
+    .pos-7 { top: 75%; left: 50%; transform: translateX(-50%); text-align: left; width: auto; white-space: nowrap; max-width: none; }
+}
+
+/* Nút Click tiếp tục */
+.click-continue {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%); /* Chỉ căn giữa ngang */
+    color: #004fff;
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 1s ease; /* Bỏ transform transition */
+    cursor: pointer;
+    font-weight: 400;
+    z-index: 10;
+    pointer-events: none; }
+.click-continue:hover {
+    text-decoration: underline;
+}
+.click-continue.visible {
+    opacity: 0.8;
+}

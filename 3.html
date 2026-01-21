@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A City Within A City</title>
+    <!-- Link file CSS riêng cho trang 3 -->
+    <link rel="stylesheet" href="style3.css">
+    
+    <!-- QUAN TRỌNG: Script Logic đặt ở Head để kiểm tra chuyển hướng NGAY LẬP TỨC -->
+    <script src="script3.js"></script>
+</head>
+<body>
+    <div class="page-container bg-blue-gradient">
+        
+        <!-- Container chứa các vòng tròn -->
+        <div class="circles-wrapper" id="circles-container">
+            
+            <!-- Vòng 1: NO NÊ -->
+            <div class="circle-item" id="circle-none">
+                <a href="4.html" class="circle-link">
+                    <div class="circle-content">
+                        <div class="rotating-ring">
+                            <svg viewBox="0 0 500 500">
+                                <defs>
+                                    <path id="circlePath1" d="M 250, 250 m -200, 0 a 200,200 0 1,1 400,0 a 200,200 0 1,1 -400,0" />
+                                </defs>
+                                <circle cx="250" cy="250" r="190" fill="none" stroke="white" stroke-width="120" />
+                                
+                                <text fill="#0044FF" font-family="aktiv-grotesk-extended, sans-serif" font-size="13" font-weight="500">
+                                    <textPath href="#circlePath1" startOffset="50%" text-anchor="middle">
+                                        Giữa phố xá rã rời, phường hiện lên như một dấu lặng để hưởng thụ. Ở đó, một vị ngon giản dị cũng đủ sức khỏa lấp cơn thèm và sưởi ấm những tâm hồn đang cần một chỗ tựa.
+                                    </textPath>
+                                </text>
+                            </svg>
+                        </div>
+                        <div class="center-circle">
+                            <span class="sub-label">Phường</span>
+                            <span class="main-label">NO<br>NÊ</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Vòng 2: THOẢ THÍCH -->
+            <!-- Thêm ID circle-thoathich -->
+            <div class="circle-item" id="circle-thoathich">
+                <a href="5.html" class="circle-link">
+                    <div class="circle-content">
+                        <div class="rotating-ring">
+                            <svg viewBox="0 0 500 500">
+                                <defs>
+                                    <path id="circlePath2" d="M 250, 250 m -200, 0 a 200,200 0 1,1 400,0 a 200,200 0 1,1 -400,0" />
+                                </defs>
+                                <circle cx="250" cy="250" r="190" fill="none" stroke="white" stroke-width="120" />
+                                <text fill="#0044FF" font-family="aktiv-grotesk-extended, sans-serif" font-size="13" font-weight="500">
+                                    <textPath href="#circlePath2" startOffset="50%" text-anchor="middle">
+                                        Tại đây, mỗi trò chơi là một giấc mơ đang chờ được thỏa. Những tâm hồn trẻ thơ được bay, được lái, chạm vào những vì sao rực rỡ mà chúng vẫn hằng khao khát giữa phố mỏi.
+                                    </textPath>
+                                </text>
+                            </svg>
+                        </div>
+                        <div class="center-circle">
+                            <span class="sub-label">Phường</span>
+                            <span class="main-label">THOẢ<br>THÍCH</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Vòng 3: KHOẺ ĐẸP -->
+            <!-- Thêm ID circle-khoedep -->
+            <div class="circle-item" id="circle-khoedep">
+                <a href="6.html" class="circle-link">
+                    <div class="circle-content">
+                        <div class="rotating-ring">
+                            <svg viewBox="0 0 500 500">
+                                <defs>
+                                    <path id="circlePath3" d="M 250, 250 m -200, 0 a 200,200 0 1,1 400,0 a 200,200 0 1,1 -400,0" />
+                                </defs>
+                                <circle cx="250" cy="250" r="190" fill="none" stroke="white" stroke-width="120" />
+                                <text fill="#0044FF" font-family="aktiv-grotesk-extended, sans-serif" font-size="13" font-weight="500">
+                                    <textPath href="#circlePath3" startOffset="50%" text-anchor="middle">
+                                        Thoát khỏi cái ồn ào khói bụi ở nơi phố thị ngoài kia, tại đây người ta được tận hưởng cái mong muốn được vận động, được sống khoẻ, được sống đẹp, được sống với đam mê.
+                                    </textPath>
+                                </text>
+                            </svg>
+                        </div>
+                        <div class="center-circle">
+                            <span class="sub-label">Phường</span>
+                            <span class="main-label">KHOẺ<br>ĐẸP</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Vòng 4: BIẾT ƠN -->
+            <!-- Thêm ID circle-bieton -->
+            <div class="circle-item" id="circle-bieton">
+                <a href="7.html" class="circle-link">
+                    <div class="circle-content">
+                        <div class="rotating-ring">
+                            <svg viewBox="0 0 500 500">
+                                <defs>
+                                    <path id="circlePath4" d="M 250, 250 m -200, 0 a 200,200 0 1,1 400,0 a 200,200 0 1,1 -400,0" />
+                                </defs>
+                                <circle cx="250" cy="250" r="190" fill="none" stroke="white" stroke-width="120" />
+                                <text fill="#0044FF" font-family="aktiv-grotesk-extended, sans-serif" font-size="13" font-weight="500">
+                                    <textPath href="#circlePath4" startOffset="50%" text-anchor="middle">
+                                        Trong tĩnh lặng, ta gửi lòng tri ân thành kính nhất cùng nén tâm hương tới người đã khuất. Nơi tưởng nhớ bao anh hùng liệt sĩ ngã xuống, cho mầm xanh sống mãi vươn cao
+                                    </textPath>
+                                </text>
+                            </svg>
+                        </div>
+                        <div class="center-circle">
+                            <span class="sub-label">Phường</span>
+                            <span class="main-label">BIẾT<br>ƠN</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-text">
+            Chọn một phường để khám phá
+        </div>
+
+    </div>
+    
+</body>
+</html>

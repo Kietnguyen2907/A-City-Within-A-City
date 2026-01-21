@@ -1,0 +1,205 @@
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&display=swap');
+@import url("https://use.typekit.net/qse0mlk.css");
+
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    height: 100dvh;
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+}
+
+/* Container chính */
+.page-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Gradient */
+.bg-poem {
+    background: linear-gradient(180deg, #3d84ff 0%, #0044ff 40%, #87CEEB 80%, #ffffff 100%);
+}
+
+.poem-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* P5 Canvas Container */
+#p5-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Nằm dưới chữ */
+    pointer-events: none;
+}
+
+canvas {
+    display: block; 
+}
+
+/* Style cho chữ */
+.poem-text {
+    position: absolute;
+    color: white;
+    font-size: 1.1rem;
+    font-family: aktiv-grotesk-extended, sans-serif;
+    font-weight: 300;
+ 
+  
+    white-space: nowrap;
+    z-index: 10; /* Tăng Z-index lên để chắc chắn nổi trên nền */
+    
+    /* Trạng thái ẩn ban đầu */
+    opacity: 0; 
+    /* ĐÃ XÓA transform translateY để bỏ hiệu ứng trượt */
+    
+    /* Chỉ transition opacity */
+    transition: opacity 1.5s ease; /* Tăng thời gian fade lên 1.5s cho mượt */
+    
+    width: max-content;
+    line-height: 1.2;
+    padding: 5px;
+    pointer-events: none; /* Không chặn click */
+}
+
+/* Class kích hoạt hiển thị */
+.poem-text.visible {
+    opacity: 1 !important;
+}
+
+/* --- VỊ TRÍ TEXT --- */
+
+/* 1. Lê Thị Riêng là một thành phố */
+.pos-1 { 
+    top: 15%; 
+    left: 50%; 
+    transform: translateX(-50%); /* Chỉ giữ căn giữa ngang */
+} 
+
+/* 2. Một thành phố bên trong một thành phố */
+.pos-2 { 
+    top: 25%; 
+    left: 10%; 
+} 
+
+/* 3. Một thành phố tách biệt một thành phố */
+.pos-3 { 
+    top: 35%; 
+    right: 10%; 
+} 
+
+/* 4. Một thành phố của mong muốn */
+.pos-4 { 
+    top: 45%; 
+    left: 15%; 
+} 
+
+/* 5. của đam mê - FIX CĂN GIỮA */
+.pos-5 { 
+    top: 53%; 
+    left: 50%; 
+    transform: translateX(-30%); /* Đảm bảo căn giữa tuyệt đối */
+    text-align: center;
+} 
+
+/* 6. và của ước mơ */
+.pos-6 { 
+    top: 58%; 
+    right: 15%; 
+} 
+
+/* 7 & 8 Group: Một thành phố mà mọi người cảm thấy... được thuộc về */
+.poem-group-row {
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* UPDATE: Giảm gap xuống nhỏ hơn */
+    gap: 2px; 
+    z-index: 10;
+    pointer-events: none;
+    flex-wrap: wrap; 
+    padding: 0 10px;
+}
+
+/* Ghi đè style poem-text khi nằm trong group */
+.poem-group-row .poem-text {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none; /* Reset transform để flexbox xử lý */
+    width: auto;
+    white-space: normal;
+    text-align: center;
+    /* UPDATE: Xóa padding để gap hoạt động chính xác */
+    padding: 0; 
+}
+
+/* Style riêng cho chữ "được thuộc về" */
+#pt-8 {
+    font-weight: 500;
+}
+
+/* Tablet & Desktop Adjustments */
+@media (min-width: 768px) {
+    .poem-text { font-size: 1.1rem; font-weight:200 !important;}
+    
+    .pos-1 { top: 15%; }
+    .pos-2 { top: 25%; left: 15%; }
+    .pos-3 { top: 38%; right: 15%; }
+    .pos-4 { top: 48%; left: 20%; }
+    .pos-5 { top: 55%; left: 50%; }
+    .pos-6 { top: 60%; right: 25%; }
+    
+    .poem-group-row {
+        top: 72%;
+        /* UPDATE: Gap nhỏ trên desktop */
+        gap: 6px; 
+        white-space: nowrap;
+    }
+    .poem-group-row .poem-text {
+        white-space: nowrap;
+    }
+}
+
+/* Nút Click tiếp tục */
+.click-continue {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%); /* Chỉ căn giữa ngang */
+    color: #004fff;
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 1s ease; /* Bỏ transform transition */
+    cursor: pointer;
+    font-weight: 400;
+    z-index: 10;
+    pointer-events: none; 
+}
+
+.click-continue.visible {
+    opacity: 0.8 !important;
+}

@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A City Within A City</title>
+    <!-- Link file CSS riêng cho trang 2 -->
+    <link rel="stylesheet" href="style2.css">
+    <!-- P5.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+    <div class="page-container bg-poem">
+        
+        <div class="poem-container">
+            <!-- Container cho P5 Canvas -->
+            <div id="p5-container"></div>
+
+            <!-- Các đoạn text - Set sẵn vị trí -->
+            <div class="poem-text pos-1" id="pt-1">Lê Thị Riêng là một thành phố</div>
+            <div class="poem-text pos-2" id="pt-2">mang nhiều sắc thái khác nhau,</div>
+            <div class="poem-text pos-3" id="pt-3">nơi phản chiếu muôn vàn</div>
+            <div class="poem-text pos-4" id="pt-4">ham muốn,</div>
+            <div class="poem-text pos-5" id="pt-5">đam mê</div>
+            <div class="poem-text pos-6" id="pt-6">và ước mơ</div>
+            <div class="poem-text pos-7" id="pt-7">của mỗi lữ khách khi ghé thăm nơi đây.</div>
+            
+            <!-- Nút tiếp tục (Chỉ là text hiển thị, click xử lý bằng JS toàn màn hình) -->
+            <div class="click-continue" id="btn-continue">Nhấn để tiếp tục</div>
+        </div>
+
+    </div>
+
+    <!-- Script P5.js mới -->
+    <script src="sketch2.js"></script>
+    <script src="script2.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Dela+Gothic+One&display=swap');
+@import url("https://use.typekit.net/qse0mlk.css");
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    font-family: 'Phudu', sans-serif;
+    overscroll-behavior: none;
+    
+}
+
+/* Background Pink Gradient */
+.bg-pink-gradient {
+    background: linear-gradient(180deg, #FFFFFF 00%, #FF2ED8 30%,#FF2ED8 70%, #FFFFFF 100%);
+}
+
+.page-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Back Button Text Style */
+.back-btn {
+    position: absolute;
+    top: 2rem;
+    left: 2.5rem;
+    z-index: 100;
+    cursor: pointer;
+    text-decoration: none;
+    
+    /* Font Style */
+    font-family: 'Phudu', sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #FF2ED8  ;
+    text-transform: uppercase;
+    
+    transition: transform 0.2s;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+}
+
+/* --- MAIN LAYOUT --- */
+.main-layout {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    /* Gom về giữa bằng cách justify center */
+    justify-content: center;
+    
+    /* Tăng khoảng cách an toàn giữa chữ và vòng xoay */
+    gap: 0%; 
+}
+
+/* LEFT PANEL (Text) */
+.left-panel {
+    flex: 0.8; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    user-select: none;
+    
+    /* Căn chữ sang phải để hướng về phía vòng xoay */
+    align-items: center; 
+    text-align: center;     
+    
+    /* Không cần padding phải lớn nữa vì đã có gap */
+    padding-right: 0; 
+    z-index: 10;
+    color: white;
+    height: 100%;
+}
+
+.intro-text {
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 60px;
+    letter-spacing: 0.5px;
+    opacity: 0.95;
+    position: relative;
+    top: 20px;
+    z-index: 2;
+}
+
+.dream-title {
+    font-family: 'Ballet', cursive;
+    /* Giảm nhẹ size để tránh bị tràn trên màn hình laptop */
+    font-size: 7.5rem; 
+    line-height: 1.1; 
+    font-weight: 400;
+    
+    /* Bắt buộc 1 dòng */
+    white-space: nowrap;
+
+    margin-right: -10px; 
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.instruction {
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+    font-size: 1rem;
+    opacity: 1;
+    margin-top: 2rem;
+}
+
+/* RIGHT PANEL (Wheel) */
+.right-panel {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+    /* Căn đầu cột phải */
+    justify-content: flex-start; 
+    
+    position: relative;
+}
+
+/* Wheel Wrapper */
+.wheel-wrapper {
+    position: relative;
+    
+    /* Giảm kích thước xuống 95vh để vừa vặn hơn trong khung hình */
+    width: 95vh; 
+    height: 95vh;
+    
+    max-width: none; 
+    max-height: none;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    
+    /* Reset margin, không kéo lùi về bên trái nữa */
+    margin-left: 0; 
+}
+
+/* --- CÁC LỚP VÒNG TRÒN --- */
+
+/* 1. Outer Ring (VUI CHƠI...) - To nhất */
+.outer-text-ring {
+    position: absolute;
+    top: 0; left: 0;
+    /* Full width container để hệ toạ độ SVG chuẩn xác */
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    /* Xoay 135 độ ngược để chữ nằm đúng hướng bên trái */
+    transform: rotate(-135deg);
+}
+
+/* 2. Middle Ring (Paragraph) - Nhỏ hơn outer */
+.middle-text-ring {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.outer-text-ring svg, .middle-text-ring svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* 3. Spinner (TRONG CÙNG) - VÒNG XOAY TRÒ CHƠI */
+.spinner-container {
+    position: absolute;
+    
+    /* Điều chỉnh kích thước Spinner bé hơn Outer Ring để lọt vào trong */
+    /* Outer Ring bán kính ~90% khung, Spinner ~72% là vừa đẹp */
+    width: 92%; 
+    height: 92%;
+    
+    /* Căn giữa thủ công: (100% - 72%) / 2 = 14% */
+    top: 4%;
+    left: 4%;
+    
+    border-radius: 50%;
+    z-index: 1; 
+}
+
+/* Các món đồ chơi */
+.game-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%; 
+    height: 100px;
+    
+    transform-origin: 0% 50%; 
+    margin-top: -50px; 
+
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    
+    /* Padding để chữ không dính sát tâm */
+    padding-left: 20px; 
+
+    text-align: center;
+    color: white;
+    font-family: 'Phudu', sans-serif;
+    font-weight: 500;
+    
+    /* Cỡ chữ vừa phải */
+    font-size: 2.8rem; 
+    text-transform: uppercase;
+    line-height: 0.9;
+    white-space: pre-line;
+}
+
+/* Mũi tên chỉ */
+.pointer-arrow {
+    position: absolute;
+    right: 8%; 
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0; 
+    
+    /* --- [ĐIỀU CHỈNH KÍCH THƯỚC TẠI ĐÂY] --- */
+    /* Độ dày (chiều cao) mũi tên */
+    border-top: 30px solid transparent;    /* Cũ: 30px */
+    border-bottom: 30px solid transparent; /* Cũ: 30px */
+    
+    /* Độ dài mũi tên */
+    border-right: 70px solid #00FFFF;      /* Cũ: 60px */
+    
+    z-index: 20;
+}
+
+/* Nút XOAY */
+.btn-spin {
+    position: absolute;
+    z-index: 30;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: auto;
+    height: auto;
+    background: transparent;
+    border: none;
+    
+    font-family: 'Phudu', sans-serif; 
+    font-weight: 900; 
+    font-size: 4rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: -2px;
+    
+    background: linear-gradient(180deg, #FFFFFF 30%, #00FFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+
+    transition: transform 0.1s;
+}
+
+.btn-spin:active {
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .main-layout { flex-direction: column; gap: 0; }
+    .left-panel { 
+        padding: 2rem 1rem; 
+        align-items: center; 
+        text-align: center;
+        flex: 0.4;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .dream-title { margin-right: 0; font-size: 5rem; }
+    
+    .right-panel { 
+        justify-content: center; 
+        flex: 0.6;
+        width: 100%;
+        overflow: hidden;
+    }
+    .wheel-wrapper { 
+        margin-left: 0; 
+        width: 90vw; height: 90vw;
+    }
+    .game-item { font-size: 1.5rem; padding-left: 10px; }
+    .btn-spin { font-size: 2.5rem; }
+}

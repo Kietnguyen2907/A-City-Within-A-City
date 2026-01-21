@@ -1,0 +1,189 @@
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Dela+Gothic+One&display=swap');
+@import url("https://use.typekit.net/qse0mlk.css");
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+    overscroll-behavior: none;
+}
+
+/* Background Teal Gradient */
+/* Gradient từ trắng xuống xanh ngọc */
+.bg-teal-gradient {
+    background: linear-gradient(180deg, #FFFFFF 0%, #00ccb3 30%,#00ccb3 70%, #ffffff 100%);
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Back Button Text Style */
+.back-btn {
+    position: absolute;
+    top: 2rem;
+    left: 2.5rem;
+    z-index: 100;
+    cursor: pointer;
+    text-decoration: none;
+    
+    /* Font Style */
+    font-family: 'Phudu', sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #004fff;
+    text-transform: uppercase;
+    
+    transition: transform 0.2s;
+}
+
+.back-btn:hover {
+    transform: scale(1.01);
+}
+
+/* --- CENTER BOX --- */
+.center-box-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50; /* Cao hơn các dây nối */
+}
+
+.blue-box {
+    width: 600px;
+    height: 300px;
+    
+    /* 4 Corner Gradient Background */
+    background-color: #0044FF; /* Màu nền backup */
+    background-image: 
+        radial-gradient(circle at 0% 0%, #004fff 0%, transparent 55%),      /* Top Left: Xanh đậm */
+        radial-gradient(circle at 100% 0%, #d7d7ff 0%, transparent 55%),     /* Top Right: Cyan sáng */
+        radial-gradient(circle at 100% 100%, #004fff 0%, transparent 55%),   /* Bottom Right: Xanh đậm */
+        radial-gradient(circle at 0% 100%, #d7d7ff 0%, transparent 55%);     /* Bottom Left: Xanh nhạt */
+
+    background-size: 100% 100%; /* Kích thước mặc định */
+    background-repeat: no-repeat;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Animation: Gradient Chuyển Động */
+@keyframes gradient-float {
+    0% {
+        background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%;
+        background-size: 100% 100%;
+    }
+    50% {
+        /* Các góc gradient tụ về giữa và phóng to nhẹ tạo hiệu ứng thở */
+        background-position: 15% 15%, 85% 15%, 85% 85%, 15% 85%;
+        background-size: 130% 130%;
+    }
+    100% {
+        background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%;
+        background-size: 100% 100%;
+    }
+}
+
+/* Hiệu ứng Hover */
+.blue-box:hover {
+    animation: gradient-float 3s ease-in-out infinite; /* Chạy animation lặp lại */
+    filter: brightness(1.1); /* Sáng lên một chút */
+}
+
+#center-text {
+    font-family: 'Ballet', cursive;
+    font-size: 10rem;
+    color: white;
+    line-height: 1;
+    user-select: none;
+    margin-top: 3rem;
+    margin-right: 2rem;
+    /* BỎ TRANSITION */
+}
+
+/* --- DYNAMIC ITEMS (Text & Lines) --- */
+#dynamic-content {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; /* Để chuột click xuyên qua vào box */
+    z-index: 10;
+}
+
+/* Style chung cho Text Items */
+.activity-item {
+    position: absolute;
+    /* LUÔN HIỂN THỊ NGAY LẬP TỨC */
+    opacity: 1; 
+    color: white;
+    /* ĐÃ TĂNG SIZE TỪ 350px LÊN 550px ĐỂ CHỮ KHÔNG BỊ RỚT */
+    max-width: 550px; 
+}
+
+.act-title {
+    font-family: 'Phudu', sans-serif; /* Hoặc Dela Gothic One nếu muốn đậm hơn */
+    font-weight: 900;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+   
+}
+
+.act-desc {
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.4;
+    opacity: 1;
+}
+
+/* Style cho dây nối */
+.connector-line {
+    position: absolute;
+    height: 2px;
+    background-color: white;
+    transform-origin: 0 50%; /* Xoay từ đầu bên trái */
+    z-index: 1; /* Nằm dưới text và box */
+    
+    /* LUÔN HIỂN THỊ NGAY LẬP TỨC */
+    opacity: 1; 
+}
+
+/* Footer Hint */
+.footer-hint {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+    color: #0044FF;
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+    font-size: 1rem;
+
+    font-weight: 500;
+    z-index: 60;
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .blue-box { width: 300px; height: 200px; }
+    #center-text { font-size: 6rem; }
+    .act-title { font-size: 2rem; }
+    /* Tăng max-width cho mobile luôn */
+    .act-desc { font-size: 0.9rem; max-width: 320px; } 
+}

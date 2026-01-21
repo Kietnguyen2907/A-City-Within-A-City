@@ -1,0 +1,143 @@
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&display=swap');
+@import url("https://use.typekit.net/qse0mlk.css");
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    font-family: 'Phudu', sans-serif;
+    
+    /* --- QUAN TRỌNG: CHẶN SCROLL --- */
+    /* Ngăn hiệu ứng kéo dãn (rubber-band) trên mobile */
+    overscroll-behavior: none;
+    /* Ngăn chặn hành động cuộn mặc định */
+    touch-action: none;
+    position: fixed; /* Cố định body để chắc chắn không cuộn được */
+    width: 100%;
+}
+
+.page-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Orange Gradient */
+.bg-orange-gradient {
+    background: linear-gradient(180deg, #ffffff 0%, #FF6C22 30%,#FF6C22 70%, #ffffff 100%);
+}
+
+/* Back Button Text Style */
+.back-btn {
+    position: absolute;
+    top: 2rem;
+    left: 2.5rem;
+    z-index: 100;
+    cursor: pointer;
+    text-decoration: none;
+    
+    /* Font Style */
+    font-family: 'Phudu', sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #2246ff;
+    text-transform: uppercase;
+    
+    transition: transform 0.2s;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+}
+
+/* P5 Canvas */
+#p5-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20; 
+    pointer-events: auto; 
+    
+    /* --- QUAN TRỌNG --- */
+    /* Báo trình duyệt không xử lý thao tác vuốt tại đây */
+    touch-action: none; 
+}
+
+/* Center Piece Container */
+.center-piece {
+    position: absolute;
+    /* Dời xuống thấp hơn theo yêu cầu (Cũ là 60%) */
+    top: 70%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5; 
+    pointer-events: none; 
+}
+
+/* Wrapper để định vị chữ lên ảnh */
+.bench-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ảnh bàn ghế */
+.bench-img {
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Text đè lên ảnh */
+.bench-text {
+    position: absolute;
+    /* Căn chỉnh vị trí text khớp với hình dáng cái ghế */
+    top: 60%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 100%;
+    text-align: center;
+    
+    font-family: 'Phudu', sans-serif;
+    font-weight: 900;
+    color: white;
+    
+    /* Style mới cho chữ gộp */
+    font-size: 3.5rem;
+    line-height: 1; /* Khoảng cách giữa 2 dòng */
+    white-space: nowrap; /* Giữ chữ trên cùng dòng nếu không có br */
+}
+
+.footer-hint {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+    color: #2246ff;
+    font-family: 'aktiv-grotesk-extended', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bench-img { height: 140px; }
+    .bench-text { font-size: 2rem; }
+}
